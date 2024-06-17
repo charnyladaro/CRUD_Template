@@ -1,0 +1,33 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Books List</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Books List</h1>
+    <ul>
+      {% for book in books %}
+      <li>
+        {{ book.title }} by {{ book.author }}
+        <a href="{{ url_for('edit', id=book.id) }}">Edit</a>
+        <form
+          action="{{ url_for('delete', id=book.id) }}"
+          method="post"
+          style="display: inline"
+        >
+          <button type="submit">Delete</button>
+        </form>
+        <a href="{{ url_for('reviews', book_id=book.id) }}">Reviews</a>
+        <!-- Add Reviews button -->
+      </li>
+      {% endfor %}
+    </ul>
+    <a href="{{ url_for('add') }}">Add New Book</a>
+  </body>
+</html>

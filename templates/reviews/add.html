@@ -1,0 +1,22 @@
+<!-- templates/reviews/add.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Review for {{ book.title }}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Add a New Review for "{{ book.title }}"</h1>
+    <form method="POST">
+      <label for="content">Content:</label>
+      <textarea id="content" name="content" required></textarea>
+      <br />
+      <button type="submit">Add Review</button>
+    </form>
+    <a href="{{ url_for('reviews', book_id=book.id) }}">Back to Reviews</a>
+  </body>
+</html>

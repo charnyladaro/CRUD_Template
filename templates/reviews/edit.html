@@ -1,0 +1,26 @@
+<!-- templates/reviews/edit.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit Review</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Edit Review</h1>
+    <form method="POST">
+      <label for="content">Content:</label>
+      <textarea id="content" name="content" required>
+{{ review.content }}</textarea
+      >
+      <br />
+      <button type="submit">Update Review</button>
+    </form>
+    <a href="{{ url_for('reviews', book_id=review.book_id) }}"
+      >Back to Reviews</a
+    >
+  </body>
+</html>
